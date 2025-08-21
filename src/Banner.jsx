@@ -4,28 +4,19 @@ import loadGif from "./load.gif";
 
 export default function Banner() {
   const [showMask, setShowMask] = useState(true);
-  const [splineLoaded, setSplineLoaded] = useState(false);
+  const [maskUrl, setMaskUrl] = useState("");
 
-  // Initial load effect
+  // Show GIF mask on every reload
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (splineLoaded) {
-        setShowMask(false);
-      }
-    }, 1500);
-
+    setMaskUrl(`${loadGif}?${Date.now()}`); // Force reload of GIF
+    const timer = setTimeout(() => setShowMask(false), 1500);
     return () => clearTimeout(timer);
-  }, [splineLoaded]);
-
-  // Called when Spline iframe is loaded
-  const handleSplineLoaded = () => {
-    setSplineLoaded(true);
-  };
+  }, []);
 
   const maskStyle = showMask
     ? {
-        maskImage: `url(${loadGif})`,
-        WebkitMaskImage: `url(${loadGif})`,
+        maskImage: `url(${maskUrl})`,
+        WebkitMaskImage: `url(${maskUrl})`,
         maskSize: "cover",
         WebkitMaskSize: "cover",
         maskPosition: "center",
@@ -41,7 +32,7 @@ export default function Banner() {
     >
       <div className="content w-full min-h-screen">
         <div className="title">
-          <UberSplineComponent onSplineLoaded={handleSplineLoaded} />
+          <UberSplineComponent />
         </div>
       </div>
     </section>
