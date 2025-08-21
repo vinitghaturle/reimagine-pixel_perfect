@@ -1,0 +1,78 @@
+.uber-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.uber-left {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.uber-left h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.ride-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.form-input {
+  padding: 14px 16px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.form-input.half {
+  flex: 1;
+}
+
+.btn {
+  padding: 14px 20px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #333;
+}
+
+.recent-activity {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #111;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.uber-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.uber-right img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+}
