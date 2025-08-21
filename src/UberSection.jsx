@@ -1,4 +1,5 @@
 import "./UberSection.css";
+import girlImage from './girl.png';  // Update import to use .png
 
 export default function UberSection() {
   return (
@@ -38,7 +39,7 @@ export default function UberSection() {
 
       {/* Right Content (Image) */}
       <div className="uber-right">
-        <img src="../src/girl.webp" alt="Uber illustration" />
+        <img src={girlImage} alt="Uber rider" />
       </div>
     </section>
   );
