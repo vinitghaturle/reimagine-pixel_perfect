@@ -1,15 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import UberSplineComponent from "./UberSplineComponent";
 
 export default function Banner() {
-  const [showMask, setShowMask] = useState(false);
+  const [showMask, setShowMask] = useState(true); // Start with mask showing
   const [maskUrl, setMaskUrl] = useState("");
+  const [splineLoaded, setSplineLoaded] = useState(false);
+
+  // Initial load effect
+  useEffect(() => {
+    setMaskUrl(`../src/load.gif?${Date.now()}`); // Force new GIF load on each mount
+    const timer = setTimeout(() => {
+      if (splineLoaded) {
+        setShowMask(false);
+      }
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, [splineLoaded]);
 
   // Called when Spline iframe is loaded
   const handleSplineLoaded = () => {
-    setMaskUrl(`../src/load.gif?${Date.now()}`);
-    setShowMask(true);
-    setTimeout(() => setShowMask(false), 1500);
+    setSplineLoaded(true);
   };
 
   const maskStyle = showMask
