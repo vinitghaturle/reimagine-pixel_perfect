@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import UberSplineComponent from "./UberSplineComponent";
+import loadGif from "./load.gif";
 
 export default function Banner() {
-  const [showMask, setShowMask] = useState(true); // Start with mask showing
-  const [maskUrl, setMaskUrl] = useState("");
+  const [showMask, setShowMask] = useState(true);
   const [splineLoaded, setSplineLoaded] = useState(false);
 
   // Initial load effect
   useEffect(() => {
-    setMaskUrl(`../src/load.gif?${Date.now()}`); // Force new GIF load on each mount
     const timer = setTimeout(() => {
       if (splineLoaded) {
         setShowMask(false);
@@ -25,8 +24,8 @@ export default function Banner() {
 
   const maskStyle = showMask
     ? {
-        maskImage: `url(${maskUrl})`,
-        WebkitMaskImage: `url(${maskUrl})`,
+        maskImage: `url(${loadGif})`,
+        WebkitMaskImage: `url(${loadGif})`,
         maskSize: "cover",
         WebkitMaskSize: "cover",
         maskPosition: "center",

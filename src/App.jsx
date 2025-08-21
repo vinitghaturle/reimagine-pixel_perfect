@@ -6,28 +6,33 @@ import Banner from './Banner.jsx'
 import UberSection from './UberSection.jsx'
 import Footer from './Footer.jsx'
 
+import rideImg from "./ride.jpg";
+import intImg from "./int.jpg";
+import rentImg from "./rent.jpg";
+import reserveImg from "./reserve.jpg";
+
 
 const App = () => {
   const features = [
     {
       title: "Ride",
       desc: "Go anywhere with Uber. Request a ride, hop in, and go.",
-      img: "../src/ride.jpg", // put your image in src/assets
+      img: rideImg,
     },
     {
-      title: "Reserve",
+      title: "Reserve", 
       desc: "Reserve your ride in advance so you can relax on the day of your trip.",
-      img: "../src/int.jpg",
+      img: intImg,
     },
     {
       title: "Intercity",
       desc: "Get convenient, affordable outstation cabs anytime at your door.",
-      img: "../src/rent.jpg",
+      img: rentImg,
     },
     {
       title: "Rentals",
       desc: "Request a trip for a block of time and make multiple stops.",
-      img: "../src/reserve.jpg",
+      img: reserveImg,
     },
   ];
   return (
